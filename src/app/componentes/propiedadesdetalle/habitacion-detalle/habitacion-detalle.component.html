@@ -1,14 +1,14 @@
 <div class="row d-flex align-items-center flex-wrap p-1">
   <div class="col-lg-3 col-md-4 col-sm-3 col-xs-2">
     <h4 class="h4 m-0">
-      <strong><i class="fa fa-home" aria-hidden="true"></i> COCHERA</strong>
+      <strong><i class="fa fa-home" aria-hidden="true"></i> HABITACIÓN</strong>
     </h4>
   </div>
   <div class="col-lg-6 col-md-4 col-sm-9 col-xs-10 text-center">
     <h4 class="h4 m-0">
       <strong>
-        <span *ngIf="cochera.estadocontrato=='A'">ALQUILER</span>
-        <span *ngIf="cochera.estadocontrato=='V'">VENTA</span> S/ {{cochera.preciocontrato}}
+        <span *ngIf="habitacion.contrato=='A'">ALQUILER: </span>
+        <span *ngIf="habitacion.contrato=='V'">VENTA: </span> S/ {{habitacion.preciocontrato}}
       </strong>
     </h4>
   </div>
@@ -34,7 +34,7 @@
               <div class="carousel-item active" [ngClass]="{'active': i==0}" *ngFor="let foto of fotos; let i = index;">
                 <img class="d-block w-100" [src]="foto.foto" [alt]="foto.nombre">
                 <div class="carousel-caption d-none d-md-block">
-                  <h3>PROPIEDAD ({{i+1}})</h3>
+                  <h3>HABITACION ({{i+1}})</h3>
                   <p>{{foto.detalle}}</p>
                 </div>
               </div>
@@ -52,18 +52,23 @@
         <!-- Carousel End-->
       </section>
       <p style="font-size: 16px; color: black">
-        <strong>Descripción: </strong>{{cochera.descripcion}}
+        <strong>Descripción: </strong>{{habitacion.descripcion}}
       </p>
     </div>
     <div class="col-md-2 pl-0">
       <section class="borderPanel p-3 mt-1">
         <h5><strong>Dirección</strong></h5>
         <p>
-          <i class="fa fa-home" aria-hidden="true"></i> {{cochera.direccion}}
+          <i class="fa fa-home" aria-hidden="true"></i> {{habitacion.direccion}}
         </p>
-        <h5><strong>Área</strong></h5>
-        <p>{{cochera.largo}} m. x {{cochera.ancho}}.</p>
-        <h5><strong>Servicios</strong></h5>
+        <h4><strong>Área</strong></h4>
+        <p>{{habitacion.largo}} m. x {{habitacion.ancho}}.</p>
+        <h4><strong>Datos</strong></h4>
+        <p>
+          <i class="fa fa-check" aria-hidden="true"></i> {{habitacion.ncamas}} Camas<br />
+          <span *ngIf="habitacion.tbanio"><i class="fa fa-check" aria-hidden="true"></i> Hay S.H</span><br />
+        </p>
+        <h4><strong>Servicios</strong></h4>
         <p>
           <span *ngFor="let servicio of servicios">
             <i class="fa fa-check" aria-hidden="true"></i> {{servicio.servicio}}<br />
@@ -83,7 +88,7 @@
           </h4>
         </div>
         <p style="font-size: 16px; color: black"> {{ubigeo.departamento.ubigeo}}, {{ubigeo.provincia.ubigeo}}, {{ubigeo.ubigeo.ubigeo}}  
-            | {{habilitacionurbana.siglas}} {{cochera.nombrehabilitacionurbana}} | <strong>Referencia: </strong> {{cochera.referencia}}
+            | {{habilitacionurbana.siglas}} {{habitacion.nombrehabilitacionurbana}} | <strong>Referencia: </strong> {{habitacion.referencia}}
         </p>
         <!--Mapa-->
         <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom" [zoomControl]="true" [zoomControlOptions]="zoomControlOptions" 
@@ -93,7 +98,7 @@
           <agm-marker [latitude]="latitude" [longitude]="longitude" [draggable]="true"
             [markerDraggable]="false">
             <agm-info-window>
-              <h6><strong>Ubicación {{constantes.TAG_COCHERA}}</strong></h6>
+              <h6><strong>Ubicación {{constantes.TAG_HABITACION}}</strong></h6>
               <p>Punto de Ubicación</p>
             </agm-info-window>
           </agm-marker>
@@ -212,7 +217,9 @@
                   <div class="text">
                     <p class="d-none">Pellentesque habitant morbi tristique senectus et netus et malesuada</p>
                     <p class="buttons">
-                      <a href="#" (click)="verPropiedades(constantes.TAG_LOTE); false" class="btn btn-template-outlined-white"><i class="fa fa-search"></i></a>
+                      <a href="#" (click)="verPropiedades(constantes.TAG_LOTE); false" class="btn btn-template-outlined-white btn-sm">
+                        <i class="fa fa-search"></i> Lotes
+                      </a>
                     </p>
                   </div>
                 </div>
