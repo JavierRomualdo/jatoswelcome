@@ -1,0 +1,35 @@
+<!-- Navbar Start-->
+<header class="nav-holder make-sticky sticky-top">
+  <div id="navbar" role="navigation" class="navbar navbar-expand-lg sizeBar" style="border-bottom: 1px solid#6aae7a">
+    <div class="container">
+      <a [routerLink]="['/inicio']" class="navbar-brand home">
+        <img src="/assets/img/home/logo.png" alt="Universal logo" class="d-none d-md-inline-block">
+        <img src="/assets/img/home/logo.png" alt="Universal logo" class="d-inline-block d-md-none">
+        <span class="sr-only">Universal - go to homepage</span>
+      </a>
+      <button type="button" data-toggle="collapse" data-target="#navigation" class="navbar-toggler btn-template-outlined">
+        <span class="sr-only">Toggle navigation</span><i class="fa fa-align-justify"></i>
+      </button>
+      <div id="navigation" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav ml-auto">
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" [routerLink]="['/inicio']">Inicio <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" [routerLink]="['/propiedades']">Propiedades</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" [routerLink]="['/nosotros']">Nosotros</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" [routerLink]="['/servicios']">Servicios</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" [routerLink]="['/contacto']">Contacto</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- Navbar End-->
