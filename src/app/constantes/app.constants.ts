@@ -186,8 +186,8 @@ export class LS {
   static TAG_SIGLAS = 'Siglas';
   static TAG_TIPO_ARCHIVO = 'Tipo archivo';
   static TAG_JARDINERIA = 'Jardinería';
-  static TAG_DISENIO_INTERIORES = 'Diseño interiores';
-  static TAG_DISENIO_EXTERIORES = 'Diseño exteriores';
+  static TAG_DISENIO_INTERIORES = 'Dis. interiores';
+  static TAG_DISENIO_EXTERIORES = 'Dis. exteriores';
   static TAG_CAMARA_VIGILANCIA = 'Videovigilancia';
 
   //LABELS

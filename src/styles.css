@@ -7,6 +7,19 @@ agm-map {
     background-color: #58D68D;
 }
 
+.filters-form {
+  width: 100%;
+  padding: 0 45px;
+  margin-top: 20%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: left;
+  flex-direction: column;
+  box-sizing: border-box;
+  z-index: 9999999999;
+}
+
 .sizeBar{
   line-height: 0.75;
 }
