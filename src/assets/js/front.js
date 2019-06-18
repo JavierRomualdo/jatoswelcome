@@ -174,12 +174,12 @@ $(function () {
     $('.project').owlCarousel({
         loop: true,
         margin: 0,
-        dots: true,
+        // dots: true,
         nav: true,
-        autoplay: true,
-        smartSpeed: 1000,
-        addClassActive: true,
-        lazyload: true,
+        // autoplay: false,
+        // smartSpeed: 0,
+        // addClassActive: true,
+        // lazyload: true,
         navText: [
             "<i class='fa fa-angle-left'></i>",
             "<i class='fa fa-angle-right'></i>"
@@ -329,10 +329,11 @@ function project() {
         margin: 0,
         dots: true,
         nav: true,
-        autoplay: true,
+        autoplay: false,
+        autoplayHoverPause: false,
         smartSpeed: 1000,
         addClassActive: true,
-        lazyload: true,
+        lazyload: false,
         navText: [
             "<i class='fa fa-angle-left'></i>",
             "<i class='fa fa-angle-right'></i>"

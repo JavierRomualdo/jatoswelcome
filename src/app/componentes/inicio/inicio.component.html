@@ -6,7 +6,7 @@
 <section class="container-fluid">
   <div class="row">
     <div class="col-md-2 color-white">
-      <div class="row pt-2 bg-primary">
+      <div class="row pt-2 bg-primary"><!--style="background-color: #fbbc05;"-->
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <div class="home-blog-post m-2 pb-2">
             <h4 class="text-center m-0 pb-1 h5">Casas</h4>
@@ -62,40 +62,43 @@
     </div>
     <!--Carousel-->
     <div class="col-md-8 p-0">
-      <img src="assets/img/home/casa.jpeg" alt="" class="img-fluid"> 
+      <div class="text-center">
+        <img src="assets/img/home/logohome.JPG" class="img-fluid"/>
+      </div>
       <div class="filters-form">
         <form>
+          <h3 class="text-center text-white">Encuentre tu lugar</h3>
           <div class="form-row">
-            <div class="col-4">
-              <!--ComboBox: Propiedades-->
-              <select class="form-control mousetrap" name="tipopropiedades" required [(ngModel)]="propiedad">
-                <!--[appFocus]="true"-->
+            <div class="col-3">
+              <select class="form-control mousetrap" name="tipopropiedades" required [(ngModel)]="propiedad"
+                title="Seleccione propiedad">
                 <option value=null>Seleccione propiedad</option>
                 <option [ngValue]="tipopropiedad" *ngFor="let tipopropiedad of tipopropiedades">
                   {{tipopropiedad}}
                 </option>
               </select>
             </div>
-            <div class="col-4">
-              <!--ComboBox: Contratos-->
+            <div class="col-3">
               <select class="form-control mousetrap" name="contratos" required
-                [(ngModel)]="contratodetalle">
-                <option value=null>Seleccione tipo de contrato</option>
+                [(ngModel)]="contratodetalle" title="Seleccione contrato">
+                <option value=null>Seleccione contrato</option>
                 <option [ngValue]="contrato" *ngFor="let contrato of tipocontratodetalle">
                   {{contrato.contrato}}
                 </option>
               </select>
             </div>
-            <div class="col-4">
+            <div class="col-5">
               <div class="input-group">
                 <span class="ui-fluid">
                   <p-autoComplete [(ngModel)]="ubigeo" [suggestions]="filteridUbigeos" (completeMethod)="filterUbigeoSingle($event)"
-                    field="rutaubigeo" [size]="40" styleClass="wid100" placeholder="Seleccione la ubicación" [minLength]="1" name="ubigeos"
+                    field="rutaubigeo" [size]="40" styleClass="wid100" placeholder="Ingrese y seleccione la ubicación" [minLength]="1" name="ubigeos"
                     [autoZIndex]="true"></p-autoComplete>
                 </span>
-                <button type="submit" class="btn btn-primary btn-sm" (click)="buscarPropiedades()"><i class="fa fa-search"></i></button>
               </div>
             </div>
+            <button type="submit" class="btn btn-primary col-1" (click)="buscarPropiedades()" title="Buscar">
+              <i class="fa fa-search"></i>
+            </button>
           </div>
         </form>
       </div>   
@@ -103,21 +106,15 @@
     
     <!--Servicios-->
     <div class="col-md-2 color-white">
-      <div class="row pt-2 bg-primary">
+      <div class="row pt-2" style="background-color: #4285f4">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <div class="home-blog-post m-2 pb-2">
             <h4 class="text-center m-0 pb-1 h5">{{constantes.TAG_JARDINERIA}}</h4>
             <div class="image m-0"><img src="assets\img\servicios\jardineria.jpg" alt="..." class="img-fluid img-thumbnail rounded">
               <div class="overlay d-flex align-items-center justify-content-center">
-                <!-- <button class="btn btn-template-outlined-white" (click)="verPropiedades(constantes.LS_CASA)">
-                  <i class="fa fa-search"></i>Buscar
-                </button> -->
                 <a href="#" (click)="verServicio(constantes.TAG_JARDINERIA); false" class="btn btn-sm btn-template-outlined-white">
                   <i class="fa fa-search"></i>Buscar
                 </a>
-                <!-- <a [href]="['#/welcome/propiedades']" class="btn btn-template-outlined-white">
-                  <i class="fa fa-search"></i>Buscar
-                </a> -->
               </div>
             </div>
           </div>
@@ -161,7 +158,7 @@
 </section>
 
 <!--Inmobiliaria jat-->
-<div class="container">
+<!-- <div class="container">
   <section class="no-mb bar">
     <div class="heading text-center">
       <h3>Inmobiliaria Jat</h3>
@@ -177,10 +174,10 @@
       </div>
     </div>    
   </section>
-</div>
+</div> -->
 
 <!--Búsqueda de propiedades-->
-<section class="bar bg-gray no-mb padding-big text-md-center" style="border-top: 1px solid#6aae7a">
+<!-- <section class="bar bg-gray no-mb padding-big text-md-center" style="border-top: 1px solid#6aae7a">
   <div class="container">
     <div class="heading text-center">
       <h3>Búsqueda</h3>
@@ -194,9 +191,7 @@
         <form>
           <div class="form-row">
             <div class="col-4">
-              <!--ComboBox: Propiedades-->
               <select class="form-control mousetrap" name="tipopropiedades" required [(ngModel)]="propiedad">
-                <!--[appFocus]="true"-->
                 <option value=null>Seleccione propiedad</option>
                 <option [ngValue]="tipopropiedad" *ngFor="let tipopropiedad of tipopropiedades">
                   {{tipopropiedad}}
@@ -204,7 +199,6 @@
               </select>
             </div>
             <div class="col-4">
-              <!--ComboBox: Contratos-->
               <select class="form-control mousetrap" name="contratos" required
                 [(ngModel)]="contratodetalle">
                 <option value=null>Seleccione tipo de contrato</option>
@@ -228,10 +222,10 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 
-<!--Servicios adiconales-->
-<section class="bar no-mb padding-big text-md-center" style="border-top: 1px solid#6aae7a"><!--bg-gray-->
+<!--Servicios adiconales--><!--bg-gray-->
+<!-- <section class="bar no-mb padding-big text-md-center" style="border-top: 1px solid#6aae7a">
   <div class="container">
     <div class="heading text-center">
         <h3>Servicios adicionales</h3>
@@ -297,4 +291,4 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
