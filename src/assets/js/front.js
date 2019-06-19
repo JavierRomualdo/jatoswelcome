@@ -300,7 +300,7 @@ function homePage() {
         margin: 0,
         dots: true,
         nav: false,
-        autoplay: true,
+        autoplay: false,
         smartSpeed: 1000,
         addClassActive: true,
         navText: [

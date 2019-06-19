@@ -8,11 +8,14 @@ import { LS } from 'src/app/constantes/app.constants';
 })
 export class ServiciosComponent implements OnInit {
 
-  public servicio = LS.KEY_SERVICIO_DOCUMENT;
-
+  // public servicio = LS.KEY_SERVICIO_DOCUMENT ?;
+  public listaServicios: any;
   constructor() { }
 
   ngOnInit() {
+    const {[LS.KEY_SERVICIO_DOCUMENT ? LS.KEY_SERVICIO_DOCUMENT.titulo: 
+      LS.TAG_JARDINERIA]: servicios} = LS.LISTA_SERVICIOS;
+    this.listaServicios = servicios;
   }
 
 }
