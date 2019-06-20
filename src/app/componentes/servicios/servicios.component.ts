@@ -8,7 +8,7 @@ import { LS } from 'src/app/constantes/app.constants';
 })
 export class ServiciosComponent implements OnInit {
 
-  // public servicio = LS.KEY_SERVICIO_DOCUMENT ?;
+  public tiposervicio = LS.KEY_SERVICIO_DOCUMENT ? LS.KEY_SERVICIO_DOCUMENT.titulo:LS.TAG_JARDINERIA;
   public listaServicios: any;
   constructor() { }
 

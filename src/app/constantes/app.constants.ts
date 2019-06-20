@@ -425,69 +425,81 @@ export class LS {
       {
         titulo: "Precio 01",
         descripcion: "Descripcion de la jardinería con el precio 01",
-        imagen: "assets/img/servicios/jardineria/1.jpg"
+        imagen: "assets/img/servicios/jardineria/1.jpg",
+        documento: "assets/documentos/jardineria.pdf"
       },
       {
         titulo: "Precio 02",
         descripcion: "Descripcion de la jardinería con el precio 02",
-        imagen: "assets/img/servicios/jardineria/2.jpg"
+        imagen: "assets/img/servicios/jardineria/2.jpg",
+        documento: "assets/documentos/jardineria.pdf"
       },
       {
         titulo: "Precio 03",
         descripcion: "Descripcion de la jardinería con el precio 03",
-        imagen: "assets/img/servicios/jardineria/3.jpg"
+        imagen: "assets/img/servicios/jardineria/3.jpg",
+        documento: "assets/documentos/jardineria.pdf"
       }
     ],
     [LS.TAG_DISENIO_INTERIORES] : [
       {
         titulo: "Precio 01",
         descripcion: "Descripcion del diseño interior con el precio 01",
-        imagen: "assets/img/servicios/diseñointeriores/1.jpg"
+        imagen: "assets/img/servicios/diseñointeriores/1.jpg",
+        documento: "assets/documentos/diseñointeriores.pdf"
       },
       {
         titulo: "Precio 02",
         descripcion: "Descripcion del diseño interior con el precio 02",
-        imagen: "assets/img/servicios/diseñointeriores/2.jpg"
+        imagen: "assets/img/servicios/diseñointeriores/2.jpg",
+        documento: "assets/documentos/diseñointeriores.pdf"
       },
       {
         titulo: "Precio 03",
         descripcion: "Descripcion del diseño interior con el precio 03",
-        imagen: "assets/img/servicios/diseñointeriores/3.jpg"
+        imagen: "assets/img/servicios/diseñointeriores/3.jpg",
+        documento: "assets/documentos/diseñointeriores.pdf"
       }
     ],
     [LS.TAG_DISENIO_EXTERIORES] : [
       {
         titulo: "Precio 01",
         descripcion: "Descripcion del diseño exterior con el precio 01",
-        imagen: "assets/img/servicios/diseñoexteriores/1.jpg"
+        imagen: "assets/img/servicios/diseñoexteriores/1.jpg",
+        documento: "assets/documentos/diseñoexteriores.pdf"
       },
       {
         titulo: "Precio 02",
         descripcion: "Descripcion del diseño exterior con el precio 02",
-        imagen: "assets/img/servicios/diseñoexteriores/2.jpg"
+        imagen: "assets/img/servicios/diseñoexteriores/2.jpg",
+        documento: "assets/documentos/diseñoexteriores.pdf"
       },
       {
         titulo: "Precio 03",
         descripcion: "Descripcion del diseño interior con el precio 03",
-        imagen: "assets/img/servicios/diseñoexteriores/3.jpg"
+        imagen: "assets/img/servicios/diseñoexteriores/3.jpg",
+        documento: "assets/documentos/diseñoexteriores.pdf"
       }
     ],
     [LS.TAG_CAMARA_VIGILANCIA] : [
       {
         titulo: "Precio 01",
-        Descripción: "Descripcion de la cámara de vigilancia con el precio 01",
-        imagen: "assets/img/servicios/camaravigilancia/1.jpg"
+        descripcion: "Descripcion de la cámara de vigilancia con el precio 01",
+        imagen: "assets/img/servicios/camaravigilancia/1.jpg",
+        documento: "assets/documentos/camaravigilancia.pdf"
       },
       {
         titulo: "Precio 02",
-        Descripción: "Descripcion de la cámara de vigilancia con el precio 02",
-        imagen: "assets/img/servicios/camaravigilancia/2.jpg"
-      },
-      {
-        titulo: "Precio 03",
-        Descripción: "Descripcion de la cámara de vigilancia con el precio 03",
-        imagen: "assets/img/servicios/camaravigilancia/3.jpg"
+        descripcion: "Descripcion de la cámara de vigilancia con el precio 02",
+        imagen: "assets/img/servicios/camaravigilancia/2.jpg",
+        documento: "assets/documentos/camaravigilancia.pdf"
       }
+      // {
+      //   titulo: "Precio 03",
+      //   descripcion: "Descripcion de la cámara de vigilancia con el precio 03",
+      //   imagen: "assets/img/servicios/camaravigilancia/3.jpg",
+      //   documento: "assets/documentos/camaravigilancia.pdf"
+      // }
     ]
   }
 }

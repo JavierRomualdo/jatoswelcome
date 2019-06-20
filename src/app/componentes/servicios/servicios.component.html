@@ -2,7 +2,7 @@
   homePage();
 </app-modal>
 <!--Carousel de servicios-->
-<section style="background: url('assets/img/photogrid.jpg') center center repeat; background-size: cover;" class="relative-positioned">
+<section [style]="{width: '100%', height: 'calc(100vh - 180px)'}">
   <!-- Carousel Start-->
   <div class="home-carousel">
     <div class="dark-mask mask-primary"></div>
@@ -11,9 +11,11 @@
         <div class="item" *ngFor="let servicio of listaServicios; let i = index;">
           <div class="row">
             <div class="col-md-5 text-right">
-              <p><img src="assets/img/logo.png" alt="" class="ml-auto"></p>
-              <h1>{{servicio.titulo}}</h1>
+              <!-- <p><img src="assets/img/logo.png" alt="" class="ml-auto"></p> -->
+              <h1>{{tiposervicio}}</h1>
+              <h2>{{servicio.titulo}}</h2>
               <p>{{servicio.descripcion}}.</p>
+              <h4><a [href]="servicio.documento" target="_blank" class="scroll-to btn btn-template-outlined-white">Ver documento</a></h4>
             </div>
             <div class="col-md-7"><img [src]="servicio.imagen" alt="" class="img-fluid"></div>
           </div>

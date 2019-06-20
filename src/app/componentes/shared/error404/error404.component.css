@@ -1,0 +1,15 @@
+.custom-background{
+    background-color: #286375;
+}
+.text-white{
+    color: #ffffff;
+}
+.center-block{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.call-100 {
+    width: 100%;
+    height: calc(100vh - 100px) !important;
+}

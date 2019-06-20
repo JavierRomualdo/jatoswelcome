@@ -36,6 +36,7 @@ import { ScrollPanelModule } from 'primeng/scrollpanel';
 import { PaginatorModule } from 'primeng/paginator';
 import { TooltipModule } from 'primeng/tooltip';
 import { TabViewModule } from 'primeng/tabview';
+import { Error404Component } from './componentes/shared/error404/error404.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { TabViewModule } from 'primeng/tabview';
     Autonumeric2Directive,
     AutonumericDirective,
     FocusDirective,
-    CargandoComponent
+    CargandoComponent,
+    Error404Component
   ],
   imports: [
     BrowserModule,

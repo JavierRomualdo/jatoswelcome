@@ -299,10 +299,11 @@ function homePage() {
         loop: true,
         margin: 0,
         dots: true,
-        nav: false,
+        nav: true,
         autoplay: false,
         smartSpeed: 1000,
         addClassActive: true,
+        lazyload: false,
         navText: [
             "<i class='fa fa-angle-left'></i>",
             "<i class='fa fa-angle-right'></i>"
