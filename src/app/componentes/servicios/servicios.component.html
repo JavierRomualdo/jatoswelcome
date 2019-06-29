@@ -1,29 +1,32 @@
 <app-modal>
-  homePage();
+    project();
 </app-modal>
 <!--Carousel de servicios-->
-<section [style]="{width: '100%', height: 'calc(100vh - 180px)'}">
-  <!-- Carousel Start-->
-  <div class="home-carousel">
-    <div class="dark-mask mask-primary"></div>
-    <div class="container">
-      <div class="homepage owl-carousel">
-        <div class="item" *ngFor="let servicio of listaServicios; let i = index;">
-          <div class="row">
-            <div class="col-md-5 text-right">
-              <!-- <p><img src="assets/img/logo.png" alt="" class="ml-auto"></p> -->
-              <h1>{{tiposervicio}}</h1>
-              <h2>{{servicio.titulo}}</h2>
-              <p>{{servicio.descripcion}}.</p>
-              <h4><a [href]="servicio.documento" target="_blank" class="scroll-to btn btn-template-outlined-white">Ver documento</a></h4>
+<section style="height: 84vh" class="d-flex align-items-center bg-primary">
+  <div class="row" style="width: 100%">
+    <div class="col-md-12">
+      <!-- Carousel Start-->
+      <div class="home-carousel">
+        <!-- <div class="dark-mask mask-primary"></div> -->
+        <div class="container">
+          <div class="project owl-carousel">
+            <div class="item" *ngFor="let servicio of listaServicios; let i = index;">
+              <div class="row">
+                <div class="col-md-5 text-right">
+                  <h1>{{tiposervicio}}</h1>
+                  <h2>{{servicio.titulo}}</h2>
+                  <p>{{servicio.descripcion}}.</p>
+                  <h4><a [href]="servicio.documento" target="_blank" class="scroll-to btn btn-template-outlined-white">Ver documento</a></h4>
+                </div>
+                <div class="col-md-7"><img [src]="servicio.imagen" alt="" class="img-fluid"></div>
+              </div>
             </div>
-            <div class="col-md-7"><img [src]="servicio.imagen" alt="" class="img-fluid"></div>
           </div>
         </div>
       </div>
+      <!-- Carousel End-->
     </div>
   </div>
-  <!-- Carousel End-->
 </section>
 <!-- <div id="content">
   <div id="contact" class="container">

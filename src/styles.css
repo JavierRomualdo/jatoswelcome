@@ -7,7 +7,7 @@ agm-map {
     background-color: #58D68D;
 }
 
-.filters-form {
+/* .filters-form {
   width: 100%;
   padding: 0 45px;
   margin-top: 35%;
@@ -17,13 +17,13 @@ agm-map {
   display: left;
   flex-direction: column;
   box-sizing: border-box;
-}
+} */
 
 .filters-form form {
   background-color: rgba(72,69,64,.6);
   border-radius: 8px;
   box-sizing: border-box;
-  position: relative;
+  /* position: relative; */
   /* overflow: hidden; */
   padding: 10px;
 }
@@ -146,4 +146,17 @@ agm-map {
   min-height: 10em;
   line-height: 2em;
   height: 100%;
+}
+
+/*botones de carousel*/
+button.owl-prev, button.owl-next {
+  background-color: #66a274 !important;
+}
+
+.owl-carousel .owl-dots .owl-dot span{
+  background: white !important;
+}
+
+.project .owl-dot.active span{
+  background: #66a274 !important
 }
