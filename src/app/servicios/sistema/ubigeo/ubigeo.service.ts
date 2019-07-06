@@ -104,6 +104,27 @@ export class UbigeoService {
     ).catch(err => this.utilService.handleError(err, contexto));
   }
 
+  listarubigeos(parametro, contexto) {
+    this.api.post2('listarubigeos', parametro).then(
+      (data) => {
+        if (data) {
+          if (parametro.tipoubigeo_id === 0) {
+            contexto.despuesDeMostrarUbigeosDepartamentos(data.extraInfo);
+          } else if (parametro.tipoubigeo_id === 1) { // departamento
+            // listo las provincias del departamento
+            contexto.despuesDeMostrarUbigeosProvincias(data.extraInfo);
+          } else if (parametro.tipoubigeo_id === 2) { // provincia
+            // listo los distritos de la provincia
+            contexto.despuesDeMostrarUbigeosDistritos(data.extraInfo);
+          } else if (parametro.tipoubigeo_id === 3) { // distrito
+            contexto.despuesDeMostrarUbigeosHabilitacionUrbanas(data.extraInfo);
+          }
+          !data.extraInfo && this.toastr.warning(data.operacionMensaje, LS.TAG_AVISO);
+        }
+      }
+    ).catch(err => this.utilService.handleError(err, contexto));
+  }
+
   busquedaUbigeos(parametro, contexto) {
     this.api.post2('buscarubigeos', parametro).then(
       (res) => {

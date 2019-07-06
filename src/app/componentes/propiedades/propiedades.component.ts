@@ -149,7 +149,12 @@ export class PropiedadesComponent implements OnInit {
       this.ubigeo.departamento = departamentoSeleccionado;
       console.log(departamentoSeleccionado);
       // mostrar provincias del departamento seleccionado
-      this.mostrarubigeos(departamentoSeleccionado.tipoubigeo_id, departamentoSeleccionado.codigo); // provincias
+      const parametros = {
+        tipoubigeo_id: departamentoSeleccionado.tipoubigeo_id,
+        codigo: departamentoSeleccionado.codigo,
+        activos: true
+      }
+      this.mostrarubigeos(parametros); // provincias
       // this.mostrarlotes(departamento.tipoubigeo_id, departamento.codigo);
       //this.listarPropiedades();
     } else {
@@ -169,7 +174,12 @@ export class PropiedadesComponent implements OnInit {
     if (provinciaSeleccionado) {
       this.ubigeo.provincia = provinciaSeleccionado;
       console.log(this.ubigeo.provincia);
-      this.mostrarubigeos(provinciaSeleccionado.tipoubigeo_id, provinciaSeleccionado.codigo); // provincias
+      const parametros = {
+        tipoubigeo_id: provinciaSeleccionado.tipoubigeo_id,
+        codigo: provinciaSeleccionado.codigo,
+        activos: true
+      }
+      this.mostrarubigeos(parametros); // provincias
       //this.listarPropiedades();
     } else {
       this.ubigeodistritos = [];
@@ -187,7 +197,12 @@ export class PropiedadesComponent implements OnInit {
     if (distritoSeleccionado) {
       this.ubigeo.distrito = distritoSeleccionado;
       console.log(this.ubigeo.distrito);
-      this.mostrarubigeos(distritoSeleccionado.tipoubigeo_id, distritoSeleccionado.codigo);
+      const parametros = {
+        tipoubigeo_id: distritoSeleccionado.tipoubigeo_id,
+        codigo: distritoSeleccionado.codigo,
+        activos: true
+      }
+      this.mostrarubigeos(parametros);
       // se carga las habilitaciones urbanas
     } else {
       // this.ubigeodistritos = [];
@@ -299,9 +314,25 @@ export class PropiedadesComponent implements OnInit {
 
   }
 
-  mostrarubigeos(idtipoubigeo, codigo) {
+  mostrarubigeos(parametros) {
     this.cargando = true;
-    this.ubigeoService.mostrarUbigeos({idtipoubigeo: idtipoubigeo, codigo: codigo}, this);
+    this.ubigeoService.listarubigeos(parametros, this);
+  }
+
+  despuesDeMostrarUbigeosDepartamentos(data) {
+    this.cargando = false;
+    this.ubigeodepartamentos = data;
+    console.log(data);
+    // verificar si proviene de la busqueda en welcome: KEY_UBIGEO[]
+    if (LS.KEY_UBIGEO.length > 1) { // si hay key de departamento
+      const departamentos = this.ubigeodepartamentos.slice();
+      this.departamentoSeleccionado = departamentos.find(item => item.ubigeo === LS.KEY_UBIGEO[1]);
+      this.mostrarprovincias(this.provinciaSeleccionado);
+    } else {
+      // Limpiar
+      this.limpiarConstantesSearch();
+      this.listarPropiedades();
+    }
   }
 
   despuesDeMostrarUbigeosProvincias(data) {
