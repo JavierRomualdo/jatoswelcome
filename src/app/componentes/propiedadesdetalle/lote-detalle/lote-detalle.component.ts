@@ -1,19 +1,17 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Lote } from 'src/app/entidades/lote/entidad.lote';
 import { LoteMensaje } from 'src/app/entidades/lote/entidad.lotemensaje';
-import { FileItem } from 'src/app/entidades/file/file-item';
 import { Servicios } from 'src/app/entidades/empresa/entidad.servicios';
 import { Foto } from 'src/app/entidades/file/entidad.foto';
 import { Persona } from 'src/app/entidades/empresa/entidad.persona';
 import { UbigeoGuardar } from 'src/app/entidades/ubigeo/entidad.ubigeoguardar';
 import { HabilitacionUrbana } from 'src/app/entidades/empresa/entidad.habilitacionurbana';
 import { LS } from 'src/app/constantes/app.constants';
-import { ApiRequestService } from 'src/app/servicios/configuracion/api-request/api-request.service';
-import { ToastrService } from 'ngx-toastr';
 import { MailService } from 'src/app/servicios/configuracion/mail/mail.service';
 import { Ubigeo } from 'src/app/entidades/ubigeo/entidad.ubigeo';
 import { ZoomControlOptions, ControlPosition, ZoomControlStyle, FullscreenControlOptions,
   ScaleControlOptions, ScaleControlStyle, PanControlOptions } from '@agm/core/services/google-maps-types';
+import { PropiedadesService } from 'src/app/servicios/sistema/propiedades/propiedades.service';
 
 @Component({
   selector: 'app-lote-detalle',
@@ -27,14 +25,12 @@ export class LoteDetalleComponent implements OnInit {
   public lote: Lote;
   public mensaje: LoteMensaje;
   public cargando: Boolean = false;
-  public archivos: FileItem[] = [];
   public servicios: Servicios[];
   public fotos: Foto[];
   public persona: Persona;
   public ubigeo: UbigeoGuardar;
   public habilitacionurbana: HabilitacionUrbana;
   public listaLP: any = []; // lista de persona-roles
-  errors: Array<Object> = [];
   public constantes: any = LS;
   // Mapa
   public latitude: number = -5.196395;
@@ -42,8 +38,7 @@ export class LoteDetalleComponent implements OnInit {
   public zoom: number = 16;
 
   constructor(
-    public api: ApiRequestService,
-    public toastr: ToastrService,
+    private propiedadesService: PropiedadesService,
     private mensajeService: MailService
   ) {
     this.lote = new Lote();
@@ -56,7 +51,6 @@ export class LoteDetalleComponent implements OnInit {
     this.ubigeo.departamento = new Ubigeo();
     this.ubigeo.provincia = new Ubigeo();
     this.ubigeo.ubigeo = new Ubigeo();
-    this.archivos = [];
     this.listaLP = [];
   }
 
@@ -76,82 +70,46 @@ export class LoteDetalleComponent implements OnInit {
   obtenerLote(id) {
     // aqui traemos los datos del usuario con ese id para ponerlo en el formulario y editarlo
     this.cargando = true;
-    this.api.get2('lotes/' + id).then(
-      (data) => {
-        if (data && data.extraInfo) {
-          // console.log(res);
-          this.lote = data.extraInfo;
-          this.listaLP = data.extraInfo.lotepersonaList;
-          this.persona = this.listaLP[0];
-          this.ubigeo = data.extraInfo.ubigeo;
-          this.habilitacionurbana = data.extraInfo.habilitacionurbana;
-          this.servicios = data.extraInfo.serviciosList;
+    this.propiedadesService.mostrarPropiedadLote(id, this);
+  }
 
-          for (const item of data.extraInfo.fotosList) {
-            console.log('foto: ');
-            console.log(item);
-            this.fotos.push(item);
-          }
-          console.log('fotoss : ');
-          console.log(this.fotos);
-          // this.fotos = res.fotosList;
-          console.log('traido para edicion');
-          console.log(this.lote);
-          this.lote.fotosList = []; // tiene que ser vacio xq son la lista de imagenes nuevas pa agregarse
-          // traer archivos de firebase storage
-          // this._cargaImagenes.getImagenes(res.path);
+  despuesDeMostrarPropiedadLote(data) {
+    this.lote = data;
+    this.listaLP = data.lotepersonaList;
+    this.persona = this.listaLP[0];
+    this.ubigeo = data.ubigeo;
+    this.habilitacionurbana = data.habilitacionurbana;
+    this.servicios = data.serviciosList;
 
-          // aqui metodo para mostrar todas las imagenes de este lote ....
-          // this.imagen = res.foto;
-          // this.imagenAnterior = res.foto;
-          // Mapa
-          this.lote.latitud = this.lote.latitud ? this.lote.latitud : this.latitude+""
-          this.lote.longitud = this.lote.longitud ? this.lote.longitud : this.longitude+""
-          this.latitude = Number.parseFloat(this.lote.latitud);
-          this.longitude = Number.parseFloat(this.lote.longitud);
-          // End Mapa
-          this.cargando = false;
-        }
-      },
-      (error) => {
-        if (error.status === 422) {
-          this.errors = [];
-          const errors = error.json();
-          console.log('Error');
-          this.cargando = false;
-          /*for (const key in errors) {
-            this.errors.push(errors[key]);
-          }*/
-        }
-      }
-    ).catch(err => this.handleError(err));
+    for (const item of data.fotosList) {
+      console.log('foto: ');
+      console.log(item);
+      this.fotos.push(item);
+    }
+    console.log('fotoss : ');
+    console.log(this.fotos);
+    console.log('traido para edicion');
+    console.log(this.lote);
+    this.lote.fotosList = []; // tiene que ser vacio xq son la lista de imagenes nuevas pa agregarse
+
+    this.lote.latitud = this.lote.latitud ? this.lote.latitud : this.latitude+""
+    this.lote.longitud = this.lote.longitud ? this.lote.longitud : this.longitude+""
+    this.latitude = Number.parseFloat(this.lote.latitud);
+    this.longitude = Number.parseFloat(this.lote.longitud);
+    // End Mapa
+    this.cargando = false;
   }
 
   enviarmensaje() {
     this.cargando = true;
     this.mensaje.lote_id = this.lote.id;
-    this.api.post2('lotemensaje', this.mensaje).then(
-      (res) => {
-        console.log('se ha enviado mensaje: ');
-        console.log(res);
-        this.toastr.success('Mensaje enviado');
-        this.enviarCorreo();
-        // this.mensaje = new LoteMensaje();
-        // this.cargando = false;
-      },
-      (error) => {
-        if (error.status === 422) {
-          this.errors = [];
-          const errors = error.json();
-          console.log('Error');
-          this.cargando = false;
-          this.handleError(error);
-          /*for (const key in errors) {
-            this.errors.push(errors[key]);
-          }*/
-        }
-      }
-    ).catch(err => this.handleError(err));
+    this.propiedadesService.ingresarMensajeLote(this.mensaje,  this);
+  }
+
+  despuesIngresarMensajeLote(data) {
+    console.log('se ha enviado mensaje: ');
+    console.log(data);
+    this.enviarCorreo();
   }
 
   enviarCorreo() {
@@ -166,20 +124,12 @@ export class LoteDetalleComponent implements OnInit {
       mensaje: this.mensaje.mensaje,
       emailReceptor: LS.KEY_EMPRESA_SELECT ? LS.KEY_EMPRESA_SELECT.correo : 'javierromualdo2014@gmail.com'
     }
-    // this.cargando = true;
     this.mensajeService.envioCorreoDelCliente(parametros, this);
   }
 
   despuesDeEnvioCorreoDelCliente(data) {
-    if (data) {
-      this.mensaje = new LoteMensaje();
-    }
+    this.mensaje = new LoteMensaje();
     this.cargando = false;
-  }
-
-  private handleError(error: any): void {
-    this.cargando = false;
-    this.toastr.error('Error Interno: ' + error, 'Error');
   }
 
   // Mapa
@@ -191,11 +141,6 @@ export class LoteDetalleComponent implements OnInit {
   fullscreenControlOptions: FullscreenControlOptions = {
     position : ControlPosition.TOP_RIGHT
   };
-
-  // mapTypeControlOptions: MapTypeControlOptions = {
-  //   mapTypeIds: [ MapTypeId.ROADMAP],
-  //   position: ControlPosition.BOTTOM_LEFT,
-  // };
 
   scaleControlOptions: ScaleControlOptions = {
     style: ScaleControlStyle.DEFAULT

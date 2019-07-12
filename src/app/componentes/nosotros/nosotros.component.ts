@@ -91,11 +91,6 @@ export class NosotrosComponent implements OnInit {
     position : ControlPosition.TOP_RIGHT
   };
 
-  // mapTypeControlOptions: MapTypeControlOptions = {
-  //   mapTypeIds: [ MapTypeId.ROADMAP],
-  //   position: ControlPosition.BOTTOM_LEFT,
-  // };
-
   scaleControlOptions: ScaleControlOptions = {
     style: ScaleControlStyle.DEFAULT
   }

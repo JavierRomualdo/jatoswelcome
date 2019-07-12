@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CasaMensaje } from 'src/app/entidades/casa/entidad.casamensaje';
-import { ApiRequestService } from 'src/app/servicios/configuracion/api-request/api-request.service';
 import { MailService } from 'src/app/servicios/configuracion/mail/mail.service';
 import { Title } from '@angular/platform-browser';
 import { LS } from 'src/app/constantes/app.constants';
@@ -16,7 +15,6 @@ export class ContactoComponent implements OnInit {
   public cargando: boolean = false;
 
   constructor(
-    // private api: ApiRequestService,
     private mensajeService: MailService,
     private titleService: Title
   ) { }
@@ -40,9 +38,7 @@ export class ContactoComponent implements OnInit {
   }
 
   despuesDeEnviarMensajeContacto(data) {
-    if (data) {
-      this.mensaje = new CasaMensaje();
-    }
+    this.mensaje = new CasaMensaje();
     this.cargando = false;
   }
 }

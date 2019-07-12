@@ -23,7 +23,7 @@ export class MailService {
           contexto.despuesDeEnvioCorreoDelCliente(data.extraInfo);
         } else {
           this.toastr.warning(data.operacionMensaje, LS.TAG_AVISO);
-          contexto.despuesDeEnvioCorreoDelCliente(null);
+          contexto.cargando = false;
         }
       }
     ).catch(err => this.utilService.handleError(err, contexto));
@@ -37,7 +37,7 @@ export class MailService {
           contexto.despuesDeEnviarMensajeContacto(data.extraInfo);
         } else {
           this.toastr.warning(data.operacionMensaje, LS.TAG_AVISO);
-          contexto.despuesDeEnviarMensajeContacto(null);
+          contexto.cargando = false;
         }
       }
     ).catch(err => this.utilService.handleError(err, contexto));
