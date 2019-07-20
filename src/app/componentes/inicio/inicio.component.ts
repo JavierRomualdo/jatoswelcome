@@ -73,7 +73,7 @@ export class InicioComponent implements OnInit {
   // busqueda de propiedades
   filterUbigeoSingle(event) {
     let query = event.query;
-    this.ubigeoService.searchUbigeo(query.toLowerCase(), this);
+    this.ubigeoService.searchUbigeo(query.toUpperCase(), this);
   }
 
   despuesDeSearchUbigeo(data) {
