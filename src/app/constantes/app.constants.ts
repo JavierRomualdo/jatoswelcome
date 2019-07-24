@@ -11,6 +11,7 @@ export class LS {
   public static KEY_IS_PERFIL_USER: boolean = false;
   public static KEY_NOTIFICACIONES: any = [];
   public static KEY_CIUDAD_DEFECTO = "Piura";
+  public static KEY_PROVINCIA_DEFECTO = "Piura";
   public static KEY_UBIGEO = []; // [departamento; provincia; distrito; habilitacion urbana]
   public static KEY_SERVICIO_DOCUMENT = {
     titulo: "Jardinería",
@@ -422,12 +423,12 @@ export class LS {
   // Datos para los servicios
   static LISTA_SERVICIOS = {
     [LS.TAG_JARDINERIA] : [
-      {
-        titulo: "Precio 01",
-        descripcion: "Descripcion de la jardinería con el precio 01",
-        imagen: "assets/img/servicios/jardineria/1.jpg",
-        documento: "assets/documentos/jardineria.pdf"
-      },
+      // {
+      //   titulo: "Precio 01",
+      //   descripcion: "Descripcion de la jardinería con el precio 01",
+      //   imagen: "assets/img/servicios/jardineria/1.jpg",
+      //   documento: "assets/documentos/jardineria.pdf"
+      // },
       {
         titulo: "Precio 02",
         descripcion: "Descripcion de la jardinería con el precio 02",

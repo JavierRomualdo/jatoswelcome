@@ -158,5 +158,25 @@ button.owl-prev, button.owl-next {
 }
 
 .project .owl-dot.active span{
-  background: #66a274 !important
+  background: #66a274 !important;
+}
+
+.maxWidth {
+  max-width: 40% !important;
+}
+
+.backgroudJardineria {
+  background-color: #EAFBC5;
+}
+
+.backgroudDisInteriores {
+  background-color: #FFF0DC;
+}
+
+.backgroudDisExteriores {
+  background-color: #FFE3EB;
+}
+
+.backgroudVigilancia {
+  background-color: #DAF5F3;
 }

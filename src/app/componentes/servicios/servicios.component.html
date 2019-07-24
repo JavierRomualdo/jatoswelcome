@@ -2,7 +2,7 @@
     project();
 </app-modal>
 <!--Carousel de servicios-->
-<section style="height: 84vh" class="d-flex align-items-center bg-primary">
+<section style="height: 84vh" class="d-flex align-items-center" [ngClass]="claseBackgroud">
   <div class="row" style="width: 100%">
     <div class="col-md-12">
       <!-- Carousel Start-->
@@ -12,8 +12,11 @@
           <div class="project owl-carousel">
             <div class="item" *ngFor="let servicio of listaServicios; let i = index;">
               <div class="row">
-                <div class="col-md-7"><img [src]="servicio.imagen" alt="" class="img-fluid"></div>
-                <div class="col-md-5 text-right">
+                <div class="col-md-7 bg-primary">
+                  <img [src]="servicio.imagen" alt="" class="img-fluid"/>
+                </div>
+                <div class="col-md-5 p-4 bg-primary">
+                  <!--text-right style="background-color: #286767"-->
                   <h1>{{tiposervicio}}</h1>
                   <h2>{{servicio.titulo}}</h2>
                   <p>{{servicio.descripcion}}.</p>
