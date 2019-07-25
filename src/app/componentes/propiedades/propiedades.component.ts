@@ -129,13 +129,13 @@ export class PropiedadesComponent implements OnInit {
   /** Para listar distritos por defecto del departameno de Piura */
   listarUbigeosDistritos() {
     if (LS.KEY_UBIGEO.length > 1) { // si hay key provincias (proviene del inicio)
-      const parametros = { departamento: LS.KEY_UBIGEO[0],
-        provincia: LS.KEY_UBIGEO[1] }
+      const parametros = { departamento: LS.KEY_UBIGEO[0].toUpperCase(),
+        provincia: LS.KEY_UBIGEO[1].toUpperCase() }
       this.ubigeoService.mostrarUbigeoProvincia(parametros, this);
     } else {
       // caso contrario tenemos que usar el KEY_PROVINCIA_DEFECTO
-      const parametros = { departamento: LS.KEY_CIUDAD_DEFECTO,
-        provincia: LS.KEY_PROVINCIA_DEFECTO }
+      const parametros = { departamento: LS.KEY_CIUDAD_DEFECTO.toUpperCase(),
+        provincia: LS.KEY_PROVINCIA_DEFECTO.toUpperCase() }
       this.ubigeoService.mostrarUbigeoProvincia(parametros, this);
     }
   }
