@@ -1,11 +1,13 @@
 import { Empresa } from '../entidades/empresa/entidad.empresa';
 import { Rangoprecios } from '../entidades/empresa/entidad.rangoprecios';
+import { Ubigeo } from '../entidades/ubigeo/entidad.ubigeo';
 
 export class LS {
   //KEYS
   public static KEY_CONTRATO_SELECT = "";
   public static KEY_PROPIEDAD_SELECT = "";
   public static KEY_EMPRESA_SELECT: Empresa;
+  public static KEY_UBIGEO_SELECT: Ubigeo;
   public static KEY_CURRENT_USER = "currentUser";
   public static KEY_FOTO_PERFIL = "fotoPerfil";
   public static KEY_IS_PERFIL_USER: boolean = false;

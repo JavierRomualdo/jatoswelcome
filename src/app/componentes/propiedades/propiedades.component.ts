@@ -68,8 +68,10 @@ export class PropiedadesComponent implements OnInit {
   ngOnInit() {
     this.titleService.setTitle( LS.PAGINA_PROPIEDADES );
     this.tipopropiedades = LS.LISTA_PROPIEDADES;
-    this.listarUbigeos(); // index ubigeos (departamento)
-    this.parametros.tipopropiedad = LS.KEY_PROPIEDAD_SELECT ? this.utilService.seleccionarPropiedad(this.tipopropiedades) : null;
+    // this.listarUbigeos(); // index ubigeos (departamento)
+    this.parametros.tipopropiedad = LS.KEY_PROPIEDAD_SELECT ? 
+      this.utilService.seleccionarPropiedad(this.tipopropiedades) : LS.TAG_CASA;
+    this.listarUbigeosDistritos();
     if (LS.KEY_CONTRATO_SELECT) {
       this.ubigeo.contrato = [];
       this.ubigeo.contrato.push(LS.KEY_CONTRATO_SELECT);
@@ -82,7 +84,8 @@ export class PropiedadesComponent implements OnInit {
 
   ejecutarAccion(parametros) {
     LS.KEY_PROPIEDAD_SELECT = parametros.propiedad;
-    this.listarUbigeos();
+    // this.listarUbigeos();
+    this.listarUbigeosDistritos();
     this.parametros.tipopropiedad = parametros.propiedad;
     this.propiedades = [];
     this.cerrarPropiedadDetalle();
@@ -122,6 +125,30 @@ export class PropiedadesComponent implements OnInit {
     this.cargando = true;
     this.ubigeoService.litarUbigeos(this);
   }
+
+  /** Para listar distritos por defecto del departameno de Piura */
+  listarUbigeosDistritos() {
+    if (LS.KEY_UBIGEO.length > 1) { // si hay key provincias (proviene del inicio)
+      const parametros = { departamento: LS.KEY_UBIGEO[0],
+        provincia: LS.KEY_UBIGEO[1] }
+      this.ubigeoService.mostrarUbigeoProvincia(parametros, this);
+    } else {
+      // caso contrario tenemos que usar el KEY_PROVINCIA_DEFECTO
+      const parametros = { departamento: LS.KEY_CIUDAD_DEFECTO,
+        provincia: LS.KEY_PROVINCIA_DEFECTO }
+      this.ubigeoService.mostrarUbigeoProvincia(parametros, this);
+    }
+  }
+
+  despuesDeMostrarUbigeoProvincia(data) {
+    this.cargando = false;
+    this.departamentoSeleccionado = data[0];
+    this.provinciaSeleccionado = data[1];
+    this.ubigeo.departamento = this.departamentoSeleccionado;
+    this.ubigeo.provincia = this.provinciaSeleccionado;
+    this.mostrardistritos(this.provinciaSeleccionado);
+  }
+  /** End listado por distritos */
 
   despuesDeListarUbigeos(data) {
     this.ubigeodepartamentos = data;

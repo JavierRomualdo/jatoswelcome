@@ -145,4 +145,46 @@ export class UbigeoService {
       }
     ).catch(err => this.utilService.handleError(err, contexto));
   }
+
+  buscarUbigeosDistrito(parametro, contexto) {
+    this.api.get2('buscarUbigeosDistrito/'+parametro).then(
+      (res) => {
+        contexto.despuesDeBuscarUbigeosDistrito(res);
+      }
+    ).catch(err => this.utilService.handleError(err, contexto));
+  }
+
+  buscarDistritosYHabilitaciones(parametro, contexto) {
+    this.api.get2('buscarDistritosYHabilitaciones/'+parametro).then(
+      (res) => {
+        contexto.despuesDeBuscarDistritosYHabilitaciones(res);
+      }
+    ).catch(err => this.utilService.handleError(err, contexto));
+  }
+
+  mostrarUbigeoProvincia(parametro, contexto) {
+    this.api.post2('mostrarUbigeoProvincia', parametro).then(
+      (data) => {
+        if (data && data.extraInfo) {
+          contexto.despuesDeMostrarUbigeoProvincia(data.extraInfo);
+        } else {
+          this.toastr.warning(data.operacionMensaje, LS.TAG_AVISO);
+          contexto.cargando = false;
+        }
+      }
+    ).catch(err => this.utilService.handleError(err, contexto));
+  }
+
+  mostrarUbigeoAnterior(parametro, contexto) {
+    this.api.post2('mostrarUbigeoAnterior', parametro).then(
+      (data) => {
+        if (data && data.extraInfo) {
+          contexto.despuesDeMostrarUbigeoAnterior(data.extraInfo);
+        } else {
+          this.toastr.warning(data.operacionMensaje, LS.TAG_AVISO);
+          contexto.cargando = false;
+        }
+      }
+    ).catch(err => this.utilService.handleError(err, contexto));
+  }
 }

@@ -55,7 +55,7 @@
                   <b> Ubicación <span class="text-primary" pTooltip="Obligatorio" tooltipPosition="top">*</span></b>
                 </label>
                 <!--ComboBox: Departamentos-->
-                <p-dropdown [options]="ubigeodepartamentos" name="departamentos" [showClear]="true" [(ngModel)]="departamentoSeleccionado"
+                <!-- <p-dropdown [options]="ubigeodepartamentos" name="departamentos" [showClear]="true" [(ngModel)]="departamentoSeleccionado"
                   [disabled]="false" (ngModelChange)="mostrarprovincias(departamentoSeleccionado);" placeholder="Seleccione departamento..."
                   optionLabel="ubigeo">
                   <ng-template let-item pTemplate="selectedItem">
@@ -64,9 +64,9 @@
                   <ng-template let-fs pTemplate="item">
                     <div> {{fs.value.ubigeo}}</div>
                   </ng-template>
-                </p-dropdown>
+                </p-dropdown> -->
                 <!--ComboBox: Provincias-->
-                <p-dropdown [options]="ubigeoprovincias" name="provincias" [showClear]="true" [(ngModel)]="provinciaSeleccionado"
+                <!-- <p-dropdown [options]="ubigeoprovincias" name="provincias" [showClear]="true" [(ngModel)]="provinciaSeleccionado"
                   [disabled]="false" (ngModelChange)="mostrardistritos(provinciaSeleccionado);" placeholder="Todas las provincias..."
                   optionLabel="ubigeo">
                   <ng-template let-item pTemplate="selectedItem">
@@ -75,7 +75,7 @@
                   <ng-template let-fs pTemplate="item">
                     <div> {{fs.value.ubigeo}}</div>
                   </ng-template>
-                </p-dropdown>
+                </p-dropdown> -->
                 <!--ComboBox: Distritos-->
                 <p-dropdown [options]="ubigeodistritos" name="distritos" [showClear]="true" [(ngModel)]="distritoSeleccionado"
                   [disabled]="false" (ngModelChange)="mostrarhabilitacionurbana(distritoSeleccionado);" placeholder="Todos los distritos..."

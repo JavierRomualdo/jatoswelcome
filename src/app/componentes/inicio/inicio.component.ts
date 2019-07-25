@@ -73,10 +73,17 @@ export class InicioComponent implements OnInit {
   // busqueda de propiedades
   filterUbigeoSingle(event) {
     let query = event.query;
-    this.ubigeoService.searchUbigeo(query.toUpperCase(), this);
+    /* Metodo que liste todo en general de los ubigeos
+    this.ubigeoService.searchUbigeo(query.toUpperCase(), this);*/
+    // Metodo para que liste los ubigeos de distritos
+    this.ubigeoService.buscarDistritosYHabilitaciones(query.toUpperCase(), this);
   }
 
-  despuesDeSearchUbigeo(data) {
+  // despuesDeSearchUbigeo(data) {
+  //   this.filteridUbigeos = data;
+  // }
+
+  despuesDeBuscarDistritosYHabilitaciones(data) {
     this.filteridUbigeos = data;
   }
 
@@ -85,6 +92,7 @@ export class InicioComponent implements OnInit {
       LS.KEY_UBIGEO = this.ubigeo.rutaubigeo.split(", ");
       LS.KEY_PROPIEDAD_SELECT = this.propiedad;
       LS.KEY_CONTRATO_SELECT = this.contratodetalle.codigo;
+      LS.KEY_UBIGEO_SELECT = this.ubigeo;
       // limpiar atributos
       this.ubigeo = null;
       this.propiedad = null;
