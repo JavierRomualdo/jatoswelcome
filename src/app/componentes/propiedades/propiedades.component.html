@@ -5,7 +5,7 @@
       <div [ngClass]="{'sr-only animated fadeIn':activar}" class="col-lg-3 col-md-4 col-sm-5 animated fadeIn">
         <form class="card border-primary animated fadeIn" autocomplete="off">
           <div class="card-header p-1 bg-primary">
-            <span class="text-white">
+            <span class="text-white" style="font-size: 14px">
               <i class="fa fa-filter"></i>
               <b> Filtros</b>
             </span>
@@ -143,11 +143,11 @@
       <!--Listado de propiedades-->
       <div [ngClass]="{'col-lg-9 col-md-8 col-sm-7 animated fadeIn':!activar,'col-lg-12 col-md-12 col-sm-12 animated fadeIn':activar}">
         <div class="card border-primary animated fadeIn">
-          <div class="card-header p-1 bg-primary text-white">
-            <strong class="mr-2">[ PROPIEDAD ] </strong>
-            <strong class="text-uppercase" *ngIf="propiedades.length > 0"> 
-              {{parametros.tipopropiedad}}
+          <div class="card-header p-1 bg-primary text-white" style="font-size: 14px">
+            <strong class="mr-2">
+              <i class="fa fa-list-ul" aria-hidden="true"></i> PROPIEDAD:
             </strong>
+            <strong *ngIf="propiedades.length > 0">{{parametros.tipopropiedad}}</strong>
             <div class="card-header-actions" *ngIf="idPropiedad!=0">
               <button class="btn btn-sm btn-default mr-2" (click)="cerrarPropiedadDetalle()" type="button"
                 tooltipPosition="top">

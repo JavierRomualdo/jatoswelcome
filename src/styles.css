@@ -180,3 +180,27 @@ button.owl-prev, button.owl-next {
 .backgroudVigilancia {
   background-color: #DAF5F3;
 }
+
+@media (min-width: 1000px) {
+  .product-header2 {
+    box-shadow: -2px 2px 8px 0 rgba(0, 0, 0, .16), 0 5px 10px 0 rgba(0, 0, 0, .12);
+    position: fixed;
+    width: 100%;
+    z-index: 180;
+  }
+}
+
+/* @media only screen and (max-width: 880px) {
+  .product-header2 {
+     display: block !important;
+     width: 100%;
+     box-shadow: -2px 2px 8px 0 rgba(0, 0, 0, .16), 0 5px 10px 0 rgba(0, 0, 0, .12);
+     z-index: 180;
+  }
+ }
+
+ @media only screen and (max-width: 1500px) and (min-width: 881px) {
+  .product-header2 {
+      display: none !important;
+   }
+ } */

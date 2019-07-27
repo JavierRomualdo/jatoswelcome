@@ -223,6 +223,7 @@ export class PropiedadesComponent implements OnInit {
   mostrarhabilitacionurbana(distritoSeleccionado: Ubigeo) {
     if (distritoSeleccionado) {
       this.ubigeo.distrito = distritoSeleccionado;
+      this.habilitacionurbanaSeleccionado = null;
       console.log(this.ubigeo.distrito);
       const parametros = {
         tipoubigeo_id: distritoSeleccionado.tipoubigeo_id,
@@ -234,6 +235,9 @@ export class PropiedadesComponent implements OnInit {
     } else {
       // this.ubigeodistritos = [];
       this.ubigeo.distrito = new Ubigeo();
+      this.ubigeohabilitacionurbanas = [];
+      this.habilitacionurbanaSeleccionado = null;
+      this.ubigeo.habilitacionurbana = new Ubigeo();
       // limpio la habilitacion urbana
       this.listarPropiedades();
       // this.parametros.departamento = null;

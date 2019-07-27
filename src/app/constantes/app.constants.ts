@@ -295,6 +295,7 @@ export class LS {
   public static PAGINA_PROPIEDADES = "Propiedades - Jatos";
   public static PAGINA_NOSOTROS = "Nosotros - Jatos";
   public static PAGINA_CONTACTO = "Contacto - Jatos";
+  public static PAGINA_SERVICIOS = "Servicio - Jatos";
   public static PAGINA_LOGIN = "Login - Jatos";
 
   //MENSAJES

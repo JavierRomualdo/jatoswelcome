@@ -12,15 +12,16 @@
           <div class="project owl-carousel">
             <div class="item" *ngFor="let servicio of listaServicios; let i = index;">
               <div class="row">
-                <div class="col-md-7 bg-primary">
+                <div class="col-md-7">
                   <img [src]="servicio.imagen" alt="" class="img-fluid"/>
                 </div>
-                <div class="col-md-5 p-4 bg-primary">
+                <div class="col-md-5 p-4 text-primary">
                   <!--text-right style="background-color: #286767"-->
                   <h1>{{tiposervicio}}</h1>
                   <h2>{{servicio.titulo}}</h2>
                   <p>{{servicio.descripcion}}.</p>
-                  <h4><a [href]="servicio.documento" target="_blank" class="scroll-to btn btn-template-outlined-white">Ver documento</a></h4>
+                  <h4><a [href]="servicio.documento" target="_blank"
+                    class="scroll-to btn btn-template-outlined-white bg-primary">Ver documento</a></h4>
                 </div>
               </div>
             </div>
