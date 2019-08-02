@@ -212,7 +212,7 @@
             </div>
             <!--Detalle de propiedades-->
             <div class="card-body" *ngIf="idPropiedad!=0">
-              <div *ngIf="parametros.tipopropiedad===constantes.TAG_CASA">
+              <div *ngIf="parametros.tipopropiedad===constantes.TAG_CASA" class="container-fluid">
                 <app-casa-detalle [id]="idPropiedad" (enviarAccion)="ejecutarAccion($event)"></app-casa-detalle>
               </div>
               <div *ngIf="parametros.tipopropiedad===constantes.TAG_COCHERA" [id]="idPropiedad">
