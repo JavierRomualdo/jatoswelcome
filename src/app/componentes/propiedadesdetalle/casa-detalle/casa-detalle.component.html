@@ -23,7 +23,7 @@
 </div> -->
 <div id="content" class="bg-white" *ngIf="!cargando">
   <div class="row portfolio-project">
-    <div class="col-md-7">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-7">
       <section>
         <!-- Carousel Start-->
         <div class="home-carousel">
@@ -55,7 +55,7 @@
       </section>
     </div>
 
-    <div class="col-md-3 pl-0" style="display: grid;">
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-3 pl-0" style="display: grid;">
       <div class="card border-primary">
         <div class="card-header border-primary">
           <h1 class="mb-2" style="font-size: 18px">
@@ -66,11 +66,11 @@
         <ul class="list-group list-group-flush">
           <li class="list-group-item">
             <div class="row">
-              <div class="col-md-6">
+              <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                 <h5 class="mb-2"><strong>Dirección</strong></h5>
                 <i class="fa fa-home" aria-hidden="true"></i> {{casa.direccion}} 
               </div>
-              <div class="col-md-6">
+              <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                 <h5 class="mb-2"><strong>Área</strong></h5>
                 {{casa.largo}} m. x {{casa.ancho}}.
               </div>
@@ -78,7 +78,7 @@
           </li>
           <li class="list-group-item">
             <div class="row">
-              <div class="col-md-6">
+              <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                 <h5 class="mb-2"><strong>Datos</strong></h5>
                 <i class="fa fa-check" aria-hidden="true"></i> {{casa.npisos}} pisos<br />
                 <i class="fa fa-check" aria-hidden="true"></i> {{casa.ncuartos}} dormitorios<br />
@@ -86,7 +86,7 @@
                 <span *ngIf="casa.tjardin"><i class="fa fa-check" aria-hidden="true"></i> Jardin</span><br />
                 <span *ngIf="casa.tcochera"><i class="fa fa-check" aria-hidden="true"></i> Cochera</span>
               </div>
-              <div class="col-md-6">
+              <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                 <h5 class="mb-2"><strong>Servicios</strong></h5>
                 <span *ngFor="let servicio of servicios">
                   <i class="fa fa-check" aria-hidden="true"></i> {{servicio.servicio}}<br />
@@ -102,52 +102,47 @@
       </div>
     </div>
     <!--Contacto-->
-    <div class="col-md-2 p-0" style="display: grid;">
+    <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 p-0" style="display: grid;">
       <div class="card border-primary">
-        <!-- <div class="card-header border-primary">
-          <h1 class="mb-2" style="font-size: 18px">
-            <span> Contacto: </span>
-          </h1>
-        </div> -->
         <div class="card-body">
           <form #mensajeform="ngForm" (ngSubmit)="enviarmensaje()">
             <div class="row">
-              <div class="col-md-12">
+              <div class="col-xs-6 col-sm-12 col-md-12 col-lg-12">
                 <div class="form-group mb-2">
                   <label for="nombres"><strong>Nombres <span class="text-primary">*</span></strong></label>
                   <input id="nombres" type="text" class="form-control" [(ngModel)]="mensaje.nombres" name="nombres"
                     required placeholder="Ingrese nombres">
                 </div>
               </div>
-              <div class="col-md-12">
+              <div class="col-xs-6 col-sm-12 col-md-12 col-lg-12">
                 <div class="form-group mb-2">
                   <label for="telefono"><strong>Telefono <span class="text-primary">*</span></strong></label>
                   <input id="telefono" type="text" class="form-control" [(ngModel)]="mensaje.telefono" name="telefono"
                     required placeholder="Ingrese telefono">
                 </div>
               </div>
-              <div class="col-md-12">
+              <div class="col-xs-6 col-sm-12 col-md-12 col-lg-12">
                 <div class="form-group mb-2">
                   <label for="email"><strong>Email <span class="text-primary">*</span></strong></label>
                   <input id="email" type="text" class="form-control" [(ngModel)]="mensaje.email" name="email"
                     placeholder="Ingrese email">
                 </div>
               </div>
-              <div class="col-md-12">
+              <div class="col-xs-6 col-sm-12 col-md-12 col-lg-12">
                 <div class="form-group mb-2">
                   <label for="titulo"><strong>Titulo <span class="text-primary">*</span></strong></label>
                   <input id="titulo" type="text" class="form-control" [(ngModel)]="mensaje.titulo" name="titulo"
                     required placeholder="Ingrese titulo del mensaje">
                 </div>
               </div>
-              <div class="col-md-12">
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="form-group mb-2">
                   <label for="mensaje"><strong>Mensaje <span class="text-primary">*</span></strong></label>
                   <textarea id="mensaje" class="form-control" [(ngModel)]="mensaje.mensaje" name="mensaje" required
                     placeholder="Ingrese mensaje" maxlength="255" rows="1"></textarea>
                 </div>
               </div>
-              <div class="col-md-12 text-center">
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
                 <button type="submit" class="btn btn-sm btn-template-outlined" [disabled]="!mensajeform.form.valid">
                   <i class="fa fa-envelope-o"></i> Enviar
                 </button>
@@ -162,14 +157,18 @@
   <div class="row portfolio-project">
     <div class="col-md-12 pr-0">
       <div class="card border-primary">
-        <div class="card-header border-primary">
-          <h3 class="mb-2">
-            <i class="{{constantes.ICON_MARKER}}" aria-hidden="true"></i><span> Ubicación </span>
-          </h3>
+        <div class="card-header pt-2 pb-2 border-primary">
+          <strong><i class="{{constantes.ICON_MARKER}}" aria-hidden="true"></i> Ubicación</strong>
+          <div class="card-header-actions">
+            <a href="#" class="card-header-action btn-minimize" data-toggle="collapse" data-target="#collapseMapa"
+              aria-expanded="true" placement="top" title="Ocultar/Mostrar">
+              <i class="fa fa-minus"></i>
+            </a>
+          </div>
         </div>
-        <div class="card-body">
+        <div class="card-body collapse show"  id="collapseMapa">
           <div class="row">
-            <div class="col-md-10">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-10">
               <!--Mapa-->
               <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom" [zoomControl]="true" [zoomControlOptions]="zoomControlOptions" 
               [fullscreenControl]="true" [fullscreenControlOptions]="fullscreenControlOptions" [streetViewControl]="'false'" 
@@ -184,7 +183,7 @@
                 </agm-marker>
               </agm-map>
             </div>
-            <div class="col-md-2">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-2">
               <div class="card border-primary">
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item">
@@ -220,100 +219,94 @@
       </div>
     </div>
   </div>
-</div>
-<!-- GET IT-->
+  <!-- GET IT-->
 <div class="get-it p-2 rounded" *ngIf="!cargando">
-  <div class="container">
-    <!--<div class="row">
-        <div class="col-lg-12 text-center p-3">
-          <h3>Lista de servicios brindados por nuestra inmobiliaria:</h3>
-        </div>
-      </div>-->
-    <!---->
-    <div>
-      <!--class="bar pt-0"-->
-      <div class="row portfolio p-0">
-        <div class="col-md-12">
-          <h4 class="text-center">MÁS PROPIEDADES</h4>
-        </div>
-        <div class="col-md-6 col-lg-3">
-          <div class="box-image">
-            <div class="image"><img src="assets\img\home\casa.jpeg" alt="" class="img-fluid">
-              <div class="overlay d-flex align-items-center justify-content-center">
-                <div class="content text-center">
-                  <!-- <div class="name no-mb">
-                    <h3><a href="portfolio-detail.html" class="color-white">Propiedades</a></h3>
-                  </div> -->
-                  <div class="text">
-                    <p class="d-none">Pellentesque habitant morbi tristique senectus et netus et malesuada</p>
-                    <p class="buttons">
-                      <a href="#" (click)="verPropiedades(constantes.TAG_CASA); false" class="btn btn-template-outlined-white btn-sm">
-                        <i class="fa fa-search"></i> Casas
-                      </a>
-                    </p>
+    <div class="container">
+      <div>
+        <!--class="bar pt-0"-->
+        <div class="row portfolio get-it rounded p-0" *ngIf="!cargando">
+          <div class="col-md-12">
+            <h4 class="text-center">MÁS PROPIEDADES</h4>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="box-image">
+              <div class="image"><img src="assets\img\home\casa.jpeg" alt="" class="img-fluid">
+                <div class="overlay d-flex align-items-center justify-content-center">
+                  <div class="content text-center">
+                    <!-- <div class="name no-mb">
+                      <h3><a href="portfolio-detail.html" class="color-white">Propiedades</a></h3>
+                    </div> -->
+                    <div class="text">
+                      <p class="d-none">Pellentesque habitant morbi tristique senectus et netus et malesuada</p>
+                      <p class="buttons">
+                        <a href="#" (click)="verPropiedades(constantes.TAG_CASA); false" class="btn btn-template-outlined-white btn-sm">
+                          <i class="fa fa-search"></i> Casas
+                        </a>
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="col-md-6 col-lg-3">
-          <div class="box-image">
-            <div class="image"><img src="assets\img\home\lotes.jpg" alt="" class="img-fluid">
-              <div class="overlay d-flex align-items-center justify-content-center">
-                <div class="content text-center">
-                  <!-- <div class="name no-mb">
-                    <h3><a [routerLink]="['servicios/lotes']" class="color-white">Lotes</a></h3>
-                  </div> -->
-                  <div class="text">
-                    <p class="d-none">Pellentesque habitant morbi tristique senectus et netus et malesuada</p>
-                    <p class="buttons">
-                      <a href="#" (click)="verPropiedades(constantes.TAG_LOTE); false" class="btn btn-template-outlined-white btn-sm">
-                        <i class="fa fa-search"></i> Lotes
-                      </a>
-                    </p>
+          <div class="col-md-6 col-lg-3">
+            <div class="box-image">
+              <div class="image"><img src="assets\img\home\lotes.jpg" alt="" class="img-fluid">
+                <div class="overlay d-flex align-items-center justify-content-center">
+                  <div class="content text-center">
+                    <!-- <div class="name no-mb">
+                      <h3><a [routerLink]="['servicios/lotes']" class="color-white">Lotes</a></h3>
+                    </div> -->
+                    <div class="text">
+                      <p class="d-none">Pellentesque habitant morbi tristique senectus et netus et malesuada</p>
+                      <p class="buttons">
+                        <a href="#" (click)="verPropiedades(constantes.TAG_LOTE); false" class="btn btn-template-outlined-white btn-sm">
+                          <i class="fa fa-search"></i> Lotes
+                        </a>
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="col-md-6 col-lg-3">
-          <div class="box-image">
-            <div class="image"><img src="assets\img\home\local.jpeg" alt="" class="img-fluid">
-              <div class="overlay d-flex align-items-center justify-content-center">
-                <div class="content text-center">
-                  <!-- <div class="name no-mb">
-                    <h3><a href="portfolio-detail.html" class="color-white">Locales</a></h3>
-                  </div> -->
-                  <div class="text">
-                    <p class="d-none">Pellentesque habitant morbi tristique senectus et netus et malesuada</p>
-                    <p class="buttons">
-                      <a href="#" (click)="verPropiedades(constantes.TAG_LOCAL); false" class="btn btn-template-outlined-white btn-sm">
-                        <i class="fa fa-search"></i> Locales
-                      </a>
-                    </p>
+          <div class="col-md-6 col-lg-3">
+            <div class="box-image">
+              <div class="image"><img src="assets\img\home\local.jpeg" alt="" class="img-fluid">
+                <div class="overlay d-flex align-items-center justify-content-center">
+                  <div class="content text-center">
+                    <!-- <div class="name no-mb">
+                      <h3><a href="portfolio-detail.html" class="color-white">Locales</a></h3>
+                    </div> -->
+                    <div class="text">
+                      <p class="d-none">Pellentesque habitant morbi tristique senectus et netus et malesuada</p>
+                      <p class="buttons">
+                        <a href="#" (click)="verPropiedades(constantes.TAG_LOCAL); false" class="btn btn-template-outlined-white btn-sm">
+                          <i class="fa fa-search"></i> Locales
+                        </a>
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="col-md-6 col-lg-3">
-          <div class="box-image">
-            <div class="image"><img src="assets\img\home\habitacion.jpg" alt="" class="img-fluid">
-              <div class="overlay d-flex align-items-center justify-content-center">
-                <div class="content text-center">
-                  <!-- <div class="name no-mb">
-                    <h3><a href="portfolio-detail.html" class="color-white">Habitaciones</a></h3>
-                  </div> -->
-                  <div class="text">
-                    <p class="d-none">Pellentesque habitant morbi tristique senectus et netus et malesuada</p>
-                    <p class="buttons">
-                      <a href="#" (click)="verPropiedades(constantes.TAG_HABITACION); false" class="btn btn-template-outlined-white btn-sm">
-                        <i class="fa fa-search"></i> Habitaciones
-                      </a>
-                    </p>
+          <div class="col-md-6 col-lg-3">
+            <div class="box-image">
+              <div class="image"><img src="assets\img\home\habitacion.jpg" alt="" class="img-fluid">
+                <div class="overlay d-flex align-items-center justify-content-center">
+                  <div class="content text-center">
+                    <!-- <div class="name no-mb">
+                      <h3><a href="portfolio-detail.html" class="color-white">Habitaciones</a></h3>
+                    </div> -->
+                    <div class="text">
+                      <p class="d-none">Pellentesque habitant morbi tristique senectus et netus et malesuada</p>
+                      <p class="buttons">
+                        <a href="#" (click)="verPropiedades(constantes.TAG_HABITACION); false" class="btn btn-template-outlined-white btn-sm">
+                          <i class="fa fa-search"></i> Habitaciones
+                        </a>
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -321,10 +314,11 @@
           </div>
         </div>
       </div>
+      <!---->
     </div>
-    <!---->
   </div>
 </div>
+
 <div *ngIf="cargando">
   <div class="content text-center" style="padding-top: 20%; color: #6aae7a">
     <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
